@@ -13,7 +13,7 @@
 
 set -e
 
-NERVES_BR_VERSION=2018.02.1
+NERVES_BR_VERSION=snapshot
 
 DEFCONFIG=$1
 BUILD_DIR=$2
@@ -162,4 +162,3 @@ echo
 echo "For additional options, run 'make help' in the build directory."
 echo
 echo "IMPORTANT: If you update nerves_system_br, you should rerun this script."
-
