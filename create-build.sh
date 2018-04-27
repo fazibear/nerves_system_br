@@ -13,7 +13,7 @@
 
 set -e
 
-NERVES_BR_VERSION=snapshot
+NERVES_BR_VERSION=master
 
 DEFCONFIG=$1
 BUILD_DIR=$2
