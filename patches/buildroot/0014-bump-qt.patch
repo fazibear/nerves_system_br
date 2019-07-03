@@ -1,0 +1,17 @@
+diff --git a/package/qt5/qt5.mk b/package/qt5/qt5.mk
+index 4e738c75db..c1c5542bd4 100644
+--- a/package/qt5/qt5.mk
++++ b/package/qt5/qt5.mk
+@@ -5,8 +5,8 @@
+ ################################################################################
+
+ ifeq ($(BR2_PACKAGE_QT5_VERSION_LATEST),y)
+-QT5_VERSION_MAJOR = 5.12
+-QT5_VERSION = $(QT5_VERSION_MAJOR).2
++QT5_VERSION_MAJOR = 5.13
++QT5_VERSION = $(QT5_VERSION_MAJOR).0
+ QT5_SOURCE_TARBALL_PREFIX = everywhere-src
+ else
+ QT5_VERSION_MAJOR = 5.6
+--
+2.20.1
