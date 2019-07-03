@@ -1,3 +1,37 @@
+From ecf471fc6bb220cc2c831a5ac9c1b8f5c6a181ef Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Micha=C5=82=20Kalbarczyk?= <fazibear@gmail.com>
+Date: Wed, 3 Jul 2019 23:52:12 +0200
+Subject: Bump version
+
+---
+ package/qt5/qt5.mk                            |  4 +-
+ package/qt5/qt53d/qt53d.hash                  |  4 +-
+ ...tbase-Fix-build-error-when-using-EGL.patch |  0
+ ...ble-conversion-enable-for-microblaze.patch |  0
+ .../qt5base/{5.12.2 => 5.13.0}/qt5base.hash   |  0
+ package/qt5/qt5charts/qt5charts.hash          |  4 +-
+ .../qt5/qt5declarative/qt5declarative.hash    |  4 +-
+ .../qt5graphicaleffects.hash                  |  4 +-
+ .../qt5/qt5imageformats/qt5imageformats.hash  |  4 +-
+ package/qt5/qt5location/qt5location.hash      |  4 +-
+ package/qt5/qt5multimedia/qt5multimedia.hash  |  4 +-
+ .../qt5quickcontrols/qt5quickcontrols.hash    |  4 +-
+ package/qt5/qt5script/qt5script.hash          |  4 +-
+ package/qt5/qt5scxml/qt5scxml.hash            |  4 +-
+ package/qt5/qt5sensors/qt5sensors.hash        |  4 +-
+ package/qt5/qt5svg/qt5svg.hash                |  4 +-
+ package/qt5/qt5tools/qt5tools.hash            |  4 +-
+ package/qt5/qt5wayland/qt5wayland.hash        |  4 +-
+ package/qt5/qt5webchannel/qt5webchannel.hash  |  4 +-
+ package/qt5/qt5websockets/qt5websockets.hash  |  4 +-
+ .../qt5/qt5xmlpatterns/qt5xmlpatterns.hash    |  4 +-
+ package/qt5/update-qt.rb                      | 77 +++++++++++++++++++
+ 22 files changed, 113 insertions(+), 36 deletions(-)
+ rename package/qt5/qt5base/{5.12.2 => 5.13.0}/0001-qtbase-Fix-build-error-when-using-EGL.patch (100%)
+ rename package/qt5/qt5base/{5.12.2 => 5.13.0}/0004-double-conversion-enable-for-microblaze.patch (100%)
+ rename package/qt5/qt5base/{5.12.2 => 5.13.0}/qt5base.hash (100%)
+ create mode 100755 package/qt5/update-qt.rb
+
 diff --git a/package/qt5/qt5.mk b/package/qt5/qt5.mk
 index 4e738c75db..c1c5542bd4 100644
 --- a/package/qt5/qt5.mk
@@ -13,5 +47,352 @@ index 4e738c75db..c1c5542bd4 100644
  QT5_SOURCE_TARBALL_PREFIX = everywhere-src
  else
  QT5_VERSION_MAJOR = 5.6
+diff --git a/package/qt5/qt53d/qt53d.hash b/package/qt5/qt53d/qt53d.hash
+index 5c0eac7c34..bb9b7ef729 100644
+--- a/package/qt5/qt53d/qt53d.hash
++++ b/package/qt5/qt53d/qt53d.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qt3d-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 10d05a30e925fcad971126c7f47a5e32c39f007dab96b298b2094501f9607ffe qt3d-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qt3d-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 d4036e7ac146ba78784dde0dd99e8182372b7c38e832e33b61fed4187de0ad06 qt3d-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qt3d-everywhere-src-5.13.0.tar.xz.sha256
++sha256 9f6b317acbcf483bf78465956669957eb19fdd8df610e9a580d42017e629ec4f qt3d-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 edfe70e99be2a7c109d860b19204609e582720b211c50caedac729da372a1253 LICENSE.GPL
+diff --git a/package/qt5/qt5base/5.12.2/0001-qtbase-Fix-build-error-when-using-EGL.patch b/package/qt5/qt5base/5.13.0/0001-qtbase-Fix-build-error-when-using-EGL.patch
+similarity index 100%
+rename from package/qt5/qt5base/5.12.2/0001-qtbase-Fix-build-error-when-using-EGL.patch
+rename to package/qt5/qt5base/5.13.0/0001-qtbase-Fix-build-error-when-using-EGL.patch
+diff --git a/package/qt5/qt5base/5.12.2/0004-double-conversion-enable-for-microblaze.patch b/package/qt5/qt5base/5.13.0/0004-double-conversion-enable-for-microblaze.patch
+similarity index 100%
+rename from package/qt5/qt5base/5.12.2/0004-double-conversion-enable-for-microblaze.patch
+rename to package/qt5/qt5base/5.13.0/0004-double-conversion-enable-for-microblaze.patch
+diff --git a/package/qt5/qt5base/5.12.2/qt5base.hash b/package/qt5/qt5base/5.13.0/qt5base.hash
+similarity index 100%
+rename from package/qt5/qt5base/5.12.2/qt5base.hash
+rename to package/qt5/qt5base/5.13.0/qt5base.hash
+diff --git a/package/qt5/qt5charts/qt5charts.hash b/package/qt5/qt5charts/qt5charts.hash
+index 5ec0c07790..154901ecdc 100644
+--- a/package/qt5/qt5charts/qt5charts.hash
++++ b/package/qt5/qt5charts/qt5charts.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtcharts-opensource-src-2.1.3.tar.xz.mirrorlist
+ sha256 f636a9b1c255f678f11b36cd73abc807d16dae0c31ecbc75c09524703aae7d2f  qtcharts-opensource-src-2.1.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtcharts-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 11d88d3e0ec86730219f7c2efa17f696ec8766415c488b208bfcb8f3c3a68a31 qtcharts-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtcharts-everywhere-src-5.13.0.tar.xz.sha256
++sha256 04e381ec287edf230583eb32fbcde40bce62119d3eabbe2978f4ce8366e36b27 qtcharts-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903 LICENSE.GPL3
+diff --git a/package/qt5/qt5declarative/qt5declarative.hash b/package/qt5/qt5declarative/qt5declarative.hash
+index 422b45249f..4c52f95b4a 100644
+--- a/package/qt5/qt5declarative/qt5declarative.hash
++++ b/package/qt5/qt5declarative/qt5declarative.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtdeclarative-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 f63fc053d0d16b8a9ca9308f8ead77874b470ae31b66057e2bd336bf648191fc qtdeclarative-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtdeclarative-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 470568745602e7fa21cdca42b1641162e4257cfeb7a2dcf8af24538c9516cc5b qtdeclarative-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtdeclarative-everywhere-src-5.13.0.tar.xz.sha256
++sha256 b9e8780aef0af4a60e64dcc405bdf5c03a04b28e3b94d5c2e69d0006db566ba9 qtdeclarative-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5graphicaleffects/qt5graphicaleffects.hash b/package/qt5/qt5graphicaleffects/qt5graphicaleffects.hash
+index b46c68542c..a662806201 100644
+--- a/package/qt5/qt5graphicaleffects/qt5graphicaleffects.hash
++++ b/package/qt5/qt5graphicaleffects/qt5graphicaleffects.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtgraphicaleffects-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 c742592d5e45b122b29df60b69be23ba7c817f2dc471db86e054f6ea24a999ed qtgraphicaleffects-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtgraphicaleffects-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 429398b6c661897b3c7cd62fb3657a2de60ad9152578edeeca0abde6e7ae5a86 qtgraphicaleffects-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtgraphicaleffects-everywhere-src-5.13.0.tar.xz.sha256
++sha256 33bf92d6560d4d7b87f3e99dfacbc9cafc7ea5ef3d40f00cc3777a005251d0ff qtgraphicaleffects-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5imageformats/qt5imageformats.hash b/package/qt5/qt5imageformats/qt5imageformats.hash
+index da656554cb..689741432b 100644
+--- a/package/qt5/qt5imageformats/qt5imageformats.hash
++++ b/package/qt5/qt5imageformats/qt5imageformats.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtimageformats-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 efe4da3c90c976c9b9a2eb6b081d2b8e1435935695104456276ce98e8a5848c3 qtimageformats-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtimageformats-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 1ea757728f205deb6b3f5873f5c7c3129cded5993077500a9fb249559bee7a9c qtimageformats-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtimageformats-everywhere-src-5.13.0.tar.xz.sha256
++sha256 91cb638e5f856acc17ab5a2e1a052dc91bb1af2bdbd7d99ba6a8a48f4a15f499 qtimageformats-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 edfe70e99be2a7c109d860b19204609e582720b211c50caedac729da372a1253 LICENSE.GPLv2
+diff --git a/package/qt5/qt5location/qt5location.hash b/package/qt5/qt5location/qt5location.hash
+index 2a52e1f116..3abae4b096 100644
+--- a/package/qt5/qt5location/qt5location.hash
++++ b/package/qt5/qt5location/qt5location.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtlocation-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 b7a81c58cc331fb15bea8fba21d3c9a59f6dc6ad2e4855e30a14ce59a2af1466 qtlocation-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtlocation-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 a31f27f457ac57e7203ae808b95ba0053d182e22425de03840af761e343d8bef qtlocation-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtlocation-everywhere-src-5.13.0.tar.xz.sha256
++sha256 205a47d259841b3879c59d3054d8b1098d3b0e7b45c64ad327daedefb4421414 qtlocation-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5multimedia/qt5multimedia.hash b/package/qt5/qt5multimedia/qt5multimedia.hash
+index 8c150cce40..3a5312ba09 100644
+--- a/package/qt5/qt5multimedia/qt5multimedia.hash
++++ b/package/qt5/qt5multimedia/qt5multimedia.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtmultimedia-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 ae36039ea8037742342f1615687e0ca2188f3ed0d700627a5e5be546c15e1b46 qtmultimedia-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtmultimedia-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 5d3c90c546e64abf523432a3df5e7a3f1b5ad72e7d0b5ea6260729fbefeb30f5 qtmultimedia-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtmultimedia-everywhere-src-5.13.0.tar.xz.sha256
++sha256 5076219d277083d2535e5f739d06783abe2e059e9d3fd9f924a1fa7970946d72 qtmultimedia-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5quickcontrols/qt5quickcontrols.hash b/package/qt5/qt5quickcontrols/qt5quickcontrols.hash
+index c7944c89ba..256f85d6a6 100644
+--- a/package/qt5/qt5quickcontrols/qt5quickcontrols.hash
++++ b/package/qt5/qt5quickcontrols/qt5quickcontrols.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtquickcontrols-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 31bb0fc8f21b855af6ff02c415be3246128b523d0ef7c05e248e92281ab0db8e qtquickcontrols-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtquickcontrols-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 9b5c87605d08849927dd09bf9b03a939511461372b7e20004abe1116cf9fc73e qtquickcontrols-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtquickcontrols-everywhere-src-5.13.0.tar.xz.sha256
++sha256 a5c6d40e0432246129d3f350a9aa419901dd73f2e4f8af6efb7a3e86e57ae167 qtquickcontrols-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 edfe70e99be2a7c109d860b19204609e582720b211c50caedac729da372a1253 LICENSE.GPLv2
+diff --git a/package/qt5/qt5script/qt5script.hash b/package/qt5/qt5script/qt5script.hash
+index 4683dce90b..67d5fc0ecb 100644
+--- a/package/qt5/qt5script/qt5script.hash
++++ b/package/qt5/qt5script/qt5script.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtscript-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 f08720dd0e3a70377c1cb7fa3b129e24f4cdedade279e51b67c9271ab470b389 qtscript-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtscript-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 f8717d51072b4d4455755ae081e45f23f3d0ce25602f96231dd7703bd818a2e6 qtscript-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtscript-everywhere-src-5.13.0.tar.xz.sha256
++sha256 2323eb93a215b837d8d276f7f35e7dfb6a28b952d8b51fb92c60619813a37a80 qtscript-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903 LICENSE.GPL3
+diff --git a/package/qt5/qt5scxml/qt5scxml.hash b/package/qt5/qt5scxml/qt5scxml.hash
+index 437d18891b..adae7b7104 100644
+--- a/package/qt5/qt5scxml/qt5scxml.hash
++++ b/package/qt5/qt5scxml/qt5scxml.hash
+@@ -1,5 +1,5 @@
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtscxml-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 69592542fdf4b2efe6a6378ecb1bfdda9e7f48007e191d7f77a0009e213a8623 qtscxml-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtscxml-everywhere-src-5.13.0.tar.xz.sha256
++sha256 fcd5b347a51d47b70b8192a20934951bb80cafa18fa55413ffc9e1fcb1bb2766 qtscxml-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+
+diff --git a/package/qt5/qt5sensors/qt5sensors.hash b/package/qt5/qt5sensors/qt5sensors.hash
+index f297d2aa2a..fac19ddf9e 100644
+--- a/package/qt5/qt5sensors/qt5sensors.hash
++++ b/package/qt5/qt5sensors/qt5sensors.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtsensors-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 7502d4dc5571865a7eea2a4180c3be396dfb8ce22df4c4f3d7e9ff32ab334973 qtsensors-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtsensors-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 758a131ad86c4b8b8364e48d659a680ed12d03c091c5ab2958d06b7b0aa2e50c qtsensors-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtsensors-everywhere-src-5.13.0.tar.xz.sha256
++sha256 1fae52836c786a9fd50e9e1d590384b9aea479f4569e33fc2d69536bbe2cde48 qtsensors-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5svg/qt5svg.hash b/package/qt5/qt5svg/qt5svg.hash
+index 4f06a21d86..36ee862e18 100644
+--- a/package/qt5/qt5svg/qt5svg.hash
++++ b/package/qt5/qt5svg/qt5svg.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtsvg-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 100f183517b46554079beabd8d2cabe3070a74dd0a2e64b6a304eac71cfadcec qtsvg-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtsvg-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 ed9f2118a6d33f53e5d9ed18dcd36f252a4fbaf68382a1c4a663ba75b25ae7bd qtsvg-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtsvg-everywhere-src-5.13.0.tar.xz.sha256
++sha256 0f568e20d13418c6d8e395db2ce4d2d706d3fb470cd665853e3637a29fde0eaf qtsvg-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5tools/qt5tools.hash b/package/qt5/qt5tools/qt5tools.hash
+index 41c98e733a..4b7959ef36 100644
+--- a/package/qt5/qt5tools/qt5tools.hash
++++ b/package/qt5/qt5tools/qt5tools.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qttools-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 1a63ba838058d73cb540040589b235ded77f76402693decfd6d4d3c75ea67926 qttools-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qttools-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 4aa3a089794ab1c629b666fffb5da4371351a9e85ea691d5d988c2ff63586005 qttools-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qttools-everywhere-src-5.13.0.tar.xz.sha256
++sha256 a7887a618dc6434c2567521990c2a7ca72ca6a8379c1d93c5aa6c1798d7a0819 qttools-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5wayland/qt5wayland.hash b/package/qt5/qt5wayland/qt5wayland.hash
+index 2fdcc34382..0dfe1fa0aa 100644
+--- a/package/qt5/qt5wayland/qt5wayland.hash
++++ b/package/qt5/qt5wayland/qt5wayland.hash
+@@ -1,8 +1,8 @@
+ # hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtwayland-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 5a475278b2db73aa7fa7f3ba6d98d8d72774f5c77e172495007d79f91d09daa3 qtwayland-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtwayland-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 b7840692420d106871433eb1b678277f09927d48ec6eb31a1851ee9c60d9df84 qtwayland-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtwayland-everywhere-src-5.13.0.tar.xz.sha256
++sha256 b67a6d8119628bca3301bd03992880db07d61d405534067c9cd2a598695a7cf3 qtwayland-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5webchannel/qt5webchannel.hash b/package/qt5/qt5webchannel/qt5webchannel.hash
+index e56c7907eb..137a410737 100644
+--- a/package/qt5/qt5webchannel/qt5webchannel.hash
++++ b/package/qt5/qt5webchannel/qt5webchannel.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtwebchannel-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 8eb1b0ac2286653c7932758c21e7760788a5d7cfd6162da09afa926d5be50713 qtwebchannel-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtwebchannel-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 8eb9cff9492937daa1bf5d001e39afec68c310ce5596807345e2a555dcc80b8e qtwebchannel-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtwebchannel-everywhere-src-5.13.0.tar.xz.sha256
++sha256 7f6260c73bca968511ab2facfbb14b4d8cc7a9c5b2d0f9211e7390ed8fb52b9a qtwebchannel-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5websockets/qt5websockets.hash b/package/qt5/qt5websockets/qt5websockets.hash
+index 3f4f438a4d..e2609c2eb4 100644
+--- a/package/qt5/qt5websockets/qt5websockets.hash
++++ b/package/qt5/qt5websockets/qt5websockets.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtwebsockets-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 a2439045616c89dfe06333734ff4726075c92e01db6e6b6863bc138e39c028eb qtwebsockets-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtwebsockets-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 ab9ce815b1466abe52910c9b50c0f61df8af74f9521574bb534f7f562d0e8c04 qtwebsockets-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtwebsockets-everywhere-src-5.13.0.tar.xz.sha256
++sha256 f941dd44f6e16041a25723c1b70ce9e28910c630509da0044ecb9fdda28a6e34 qtwebsockets-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/qt5xmlpatterns/qt5xmlpatterns.hash b/package/qt5/qt5xmlpatterns/qt5xmlpatterns.hash
+index 1113860644..e9f21e1270 100644
+--- a/package/qt5/qt5xmlpatterns/qt5xmlpatterns.hash
++++ b/package/qt5/qt5xmlpatterns/qt5xmlpatterns.hash
+@@ -1,8 +1,8 @@
+ # Hash from: https://download.qt.io/official_releases/qt/5.6/5.6.3/submodules/qtxmlpatterns-opensource-src-5.6.3.tar.xz.mirrorlist
+ sha256 a461ff9f0d7310de9b9904ff9cd34919e958bf4071a6fc7096450b8990ab51f6 qtxmlpatterns-opensource-src-5.6.3.tar.xz
+
+-# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtxmlpatterns-everywhere-src-5.12.2.tar.xz.sha256
+-sha256 2e535ec17b542f2a0b87a9db93284666015cc07b6188894ace7e75104c6d860d qtxmlpatterns-everywhere-src-5.12.2.tar.xz
++# Hash from: http://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtxmlpatterns-everywhere-src-5.13.0.tar.xz.sha256
++sha256 75186ff075d9a3bd30cee145bad6bc69d491b5e555b048d11136727f050d7319 qtxmlpatterns-everywhere-src-5.13.0.tar.xz
+
+ # Hashes for license files:
+ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
+diff --git a/package/qt5/update-qt.rb b/package/qt5/update-qt.rb
+new file mode 100755
+index 0000000000..31d51b50e6
+--- /dev/null
++++ b/package/qt5/update-qt.rb
+@@ -0,0 +1,77 @@
++#!/usr/bin/ruby
++
++require 'fileutils'
++require 'open-uri'
++
++FROM_QT5_VERSION_MAJOR = "5.12"
++FROM_QT5_VERSION_MINOR = ".2"
++FROM_QT5_VERSION = FROM_QT5_VERSION_MAJOR + FROM_QT5_VERSION_MINOR
++
++QT5_VERSION_MAJOR = "5.13"
++QT5_VERSION_MINOR = ".0"
++QT5_VERSION = QT5_VERSION_MAJOR + QT5_VERSION_MINOR
++
++def replace_in_file(file_name, from, to)
++  text = File.read(file_name)
++
++  puts from
++  puts to
++
++  new_contents = text.gsub(from, to)
++
++  # To merely print the contents of the file, use:
++  puts new_contents
++
++  # To write changes to the file, use:
++  File.open(file_name, "w") {|file| file.puts new_contents }
++end
++
++def patch_base
++  from = %{
++QT5_VERSION_MAJOR = #{FROM_QT5_VERSION_MAJOR}
++QT5_VERSION = $(QT5_VERSION_MAJOR)#{FROM_QT5_VERSION_MINOR}
++  }.strip
++
++  to = %{
++QT5_VERSION_MAJOR = #{QT5_VERSION_MAJOR}
++QT5_VERSION = $(QT5_VERSION_MAJOR)#{QT5_VERSION_MINOR}
++  }.strip
++
++  replace_in_file("qt5.mk", from, to)
++end
++
++def patch_base_hash
++  FileUtils.mv("qt5base/#{FROM_QT5_VERSION}", "qt5base/#{QT5_VERSION}")
++end
++
++def get_url(el)
++  el = el.split("/")[0].gsub("qt5", "qt")
++  url = "http://download.qt.io/official_releases/qt/#{QT5_VERSION_MAJOR}/#{QT5_VERSION}/submodules/#{el}-everywhere-src-#{QT5_VERSION}.tar.xz.sha256"
++end
++
++def fetch(url)
++  open(url) do |f|
++    f.read.gsub("  ", " ")
++  end
++end
++
++def patch_hash
++  subs = Dir["*/*.hash"]
++    .reduce([]) { |acc, dir| dir.start_with?("qt5base") || dir.start_with?("qt5enginio") || dir.start_with?("qt5webkit") || dir.start_with?("qt5canvas3d") ? acc : acc + [dir] }
++    .each do |hash_file|
++      url = get_url(hash_file)
++      puts url
++      hash = fetch(url)
++      el = hash_file.split("/")[0].gsub("qt5", "qt")
++      from = /# Hash from: \S+#{FROM_QT5_VERSION.gsub(".", '\.')}\S+\nsha256 \S+ #{el}-everywhere-src-#{FROM_QT5_VERSION}.tar.xz/
++      to = %{
++# Hash from: #{url}
++sha256 #{hash}
++}.strip
++    replace_in_file(hash_file, from, to)
++    end
++end
++
++patch_base
++patch_base_hash
++patch_hash
 --
 2.20.1
