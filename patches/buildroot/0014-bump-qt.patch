@@ -1,6 +1,3 @@
-diff --git a/package/qt5/patch b/package/qt5/patch
-new file mode 100644
-index 0000000000..e69de29bb2
 diff --git a/package/qt5/qt5.mk b/package/qt5/qt5.mk
 index 4e738c75db..c1c5542bd4 100644
 --- a/package/qt5/qt5.mk
@@ -31,101 +28,6 @@ index 5c0eac7c34..bb9b7ef729 100644
 
  # Hashes for license files:
  sha256 edfe70e99be2a7c109d860b19204609e582720b211c50caedac729da372a1253 LICENSE.GPL
-diff --git a/package/qt5/qt5base/5.12.2/0001-qtbase-Fix-build-error-when-using-EGL.patch b/package/qt5/qt5base/5.12.2/0001-qtbase-Fix-build-error-when-using-EGL.patch
-deleted file mode 100644
-index 6876498022..0000000000
---- a/package/qt5/qt5base/5.12.2/0001-qtbase-Fix-build-error-when-using-EGL.patch
-+++ /dev/null
-@@ -1,37 +0,0 @@
--From c11299086b7718332e2b4fbc37ce6f6ff427c5ba Mon Sep 17 00:00:00 2001
--From: Yuqing Zhu <carol.zhu@nxp.com>
--Date: Mon, 27 Mar 2017 15:33:35 +0800
--Subject: [PATCH] qtbase: Fix build error when using EGL
--MIME-Version: 1.0
--Content-Type: text/plain; charset=utf-8
--Content-Transfer-Encoding: 8bit
--
--A build error was occurring due to missing EGL configuration.
--
--Fixed by adding the necessary ties to the EGL pkg-config.
--
--Task-number: QTBUG-61712
--Change-Id: I87190ea39392b4604c563cf9d89edb85068d85fc
--Upstream-Status: Pending
--Signed-off-by: Gaël PORTAY <gael.portay@savoirfairelinux.com>
-----
-- mkspecs/features/egl.prf | 6 ++++++
-- 1 file changed, 6 insertions(+)
--
--diff --git a/mkspecs/features/egl.prf b/mkspecs/features/egl.prf
--index 9fa0c9e219..85d5852ba6 100644
----- a/mkspecs/features/egl.prf
--+++ b/mkspecs/features/egl.prf
--@@ -1,3 +1,9 @@
--+# egl headers need a definition
--+PKG_CONFIG = $$pkgConfigExecutable()
--+PKGCONFIG_CFLAGS = $$system($$PKG_CONFIG --cflags egl)
--+PKGCONFIG_CFLAGS = $$find(PKGCONFIG_CFLAGS, ^-D.*)
--+QMAKE_CFLAGS_EGL = $$PKGCONFIG_CFLAGS
--+
-- INCLUDEPATH += $$QMAKE_INCDIR_EGL
-- LIBS_PRIVATE += $$QMAKE_LIBS_EGL
-- QMAKE_CFLAGS += $$QMAKE_CFLAGS_EGL
----
--2.16.1
--
-diff --git a/package/qt5/qt5base/5.12.2/0004-double-conversion-enable-for-microblaze.patch b/package/qt5/qt5base/5.12.2/0004-double-conversion-enable-for-microblaze.patch
-deleted file mode 100644
-index c91d812695..0000000000
---- a/package/qt5/qt5base/5.12.2/0004-double-conversion-enable-for-microblaze.patch
-+++ /dev/null
-@@ -1,29 +0,0 @@
--From 014958d2d17045dd63d93cb3061d1e40b15725b7 Mon Sep 17 00:00:00 2001
--From: Peter Seiderer <ps.report@gmx.net>
--Date: Tue, 21 Aug 2018 21:11:40 +0200
--Subject: [PATCH] double-conversion: enable for microblaze
--
--Signed-off-by: Peter Seiderer <ps.report@gmx.net>
--[Rebased for Qt5.12.0]
--Signed-off-by: Peter Seiderer <ps.report@gmx.net>
-----
-- .../double-conversion/include/double-conversion/utils.h        | 3 ++-
-- 1 file changed, 2 insertions(+), 1 deletion(-)
--
--diff --git a/src/3rdparty/double-conversion/include/double-conversion/utils.h b/src/3rdparty/double-conversion/include/double-conversion/utils.h
--index 7622fe6162..d29de95094 100644
----- a/src/3rdparty/double-conversion/include/double-conversion/utils.h
--+++ b/src/3rdparty/double-conversion/include/double-conversion/utils.h
--@@ -94,7 +94,8 @@ int main(int argc, char** argv) {
--     defined(_MIPS_ARCH_MIPS32R2) || \
--     defined(__AARCH64EL__) || defined(__aarch64__) || defined(__AARCH64EB__) || \
--     defined(__riscv) || defined(__EMSCRIPTEN__) || \
---    defined(__or1k__)
--+    defined(__or1k__)  || \
--+    defined(__microblaze__)
-- #define DOUBLE_CONVERSION_CORRECT_DOUBLE_OPERATIONS 1
-- #elif defined(__mc68000__) || \
--     defined(__pnacl__) || defined(__native_client__)
----
--2.19.2
--
-diff --git a/package/qt5/qt5base/5.12.2/qt5base.hash b/package/qt5/qt5base/5.12.2/qt5base.hash
-deleted file mode 100644
-index c6758471f6..0000000000
---- a/package/qt5/qt5base/5.12.2/qt5base.hash
-+++ /dev/null
-@@ -1,11 +0,0 @@
--# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtbase-everywhere-src-5.12.2.tar.xz.sha256
--sha256 562c095a59c95f393762ec53bc05c0d80fad1758fd5ff7a5231967d1a98d56c1 qtbase-everywhere-src-5.12.2.tar.xz
--
--# Hashes for license files:
--sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
--sha256 8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903 LICENSE.GPL3
--sha256 0dbe024961f6ab5c52689cbd036c977975d0d0f6a67ff97762d96cb819dd5652 LICENSE.GPL3-EXCEPT
--sha256 88ec689407cf2df9b2eb5c45952564d51ce73c129a3bdffb15c0d2d161ad7558 LICENSE.LGPLv3
--sha256 ed8742a95cb9db653a09b050e27ccff5e67ba69c14aa2c3137f2a4e1892f6c0d LICENSE.FDL
--sha256 1f4fa3d202198f5d836993748eac9d91157e2cec7fb8426f56000a02a677cdc5 header.BSD
--sha256 2a886915de4f296cdae5ed67064f86dba01d0c55286d86e8487f2a5caaf40216 src/3rdparty/harfbuzz-ng/COPYING
 diff --git a/package/qt5/qt5base/5.13.0/0001-qtbase-Fix-build-error-when-using-EGL.patch b/package/qt5/qt5base/5.13.0/0001-qtbase-Fix-build-error-when-using-EGL.patch
 new file mode 100644
 index 0000000000..6876498022
@@ -458,11 +360,11 @@ index 1113860644..e9f21e1270 100644
 
  # Hashes for license files:
  sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
-diff --git a/package/qt5/updateqt.rb b/package/qt5/updateqt.rb
+diff --git a/package/qt5/qtupdate.rb b/package/qt5/qtupdate.rb
 new file mode 100755
-index 0000000000..31d51b50e6
+index 0000000000..f9abda8cac
 --- /dev/null
-+++ b/package/qt5/updateqt.rb
++++ b/package/qt5/qtupdate.rb
 @@ -0,0 +1,77 @@
 +#!/usr/bin/ruby
 +
@@ -507,7 +409,7 @@ index 0000000000..31d51b50e6
 +end
 +
 +def patch_base_hash
-+  FileUtils.mv("qt5base/#{FROM_QT5_VERSION}", "qt5base/#{QT5_VERSION}")
++  FileUtils.cp_r("qt5base/#{FROM_QT5_VERSION}", "qt5base/#{QT5_VERSION}")
 +end
 +
 +def get_url(el)
