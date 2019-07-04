@@ -108,12 +108,12 @@ index 0000000000..c91d812695
 +
 diff --git a/package/qt5/qt5base/5.13.0/qt5base.hash b/package/qt5/qt5base/5.13.0/qt5base.hash
 new file mode 100644
-index 0000000000..c6758471f6
+index 0000000000..4437772a4b
 --- /dev/null
 +++ b/package/qt5/qt5base/5.13.0/qt5base.hash
 @@ -0,0 +1,11 @@
-+# Hash from: https://download.qt.io/official_releases/qt/5.12/5.12.2/submodules/qtbase-everywhere-src-5.12.2.tar.xz.sha256
-+sha256 562c095a59c95f393762ec53bc05c0d80fad1758fd5ff7a5231967d1a98d56c1 qtbase-everywhere-src-5.12.2.tar.xz
++# Hash from: https://download.qt.io/official_releases/qt/5.13/5.13.0/submodules/qtbase-everywhere-src-5.13.0.tar.xz.sha256
++sha256 ff6964b3b528cd3b1d21bcf3470006e8e5cbe69591923f982871d886ea0488fe qtbase-everywhere-src-5.13.0.tar.xz
 +
 +# Hashes for license files:
 +sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 LICENSE.GPL2
