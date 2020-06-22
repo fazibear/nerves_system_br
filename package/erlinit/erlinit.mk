@@ -4,7 +4,7 @@
 #
 #############################################################
 
-ERLINIT_VERSION = v5.0.0
+ERLINIT_VERSION = setup_home
 ERLINIT_SITE = $(call github,fazibear,erlinit,$(ERLINIT_VERSION))
 ERLINIT_LICENSE = MIT
 ERLINIT_LICENSE_FILES = LICENSE
